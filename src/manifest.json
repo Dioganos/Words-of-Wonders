@@ -1,0 +1,54 @@
+{
+  "bundles": [
+    {
+      "name": "game",
+      "assets": [
+        {
+          "name": "logo",
+          "srcs": "assets/core/logo_white.png"
+        },
+        {
+          "name": "gameLogo",
+          "srcs": "assets/game_assets/wow.png"
+        },
+        {
+          "name": "background",
+          "srcs": "assets/game_assets/bg.png"
+        },
+        {
+          "name": "globalBackground",
+          "srcs": "assets/background.png"
+        },
+        {
+          "name": "install",
+          "srcs": "assets/game_assets/install0.png"
+        },
+        {
+          "name": "circle",
+          "srcs": "assets/game_assets/circle.png"
+        },
+        {
+          "name": "shuffle",
+          "srcs": "assets/game_assets/suffle.png"
+        },
+        {
+          "name": "letterBox",
+          "srcs": "assets/game_assets/rect.png"
+        },
+        {
+          "name": "globe",
+          "srcs": "assets/game_assets/globe.png"
+        }
+      ]
+    },
+    {
+      "name": "fonts",
+      "assets": [
+        {
+          "name": "font",
+          "srcs": "assets//Sniglet-Regular.ttf"
+        }
+      ]
+    }
+  ]
+}
