@@ -64,10 +64,11 @@ export default class Picker extends Container {
     CreateLetters(game) {
         // Letters
         Assets.loadBundle('fonts').then((fonts) => {
-            new Letter(.5, .665, LevelData.chars.split(',')[0], fonts.font, game);
-            new Letter(.65, .75, LevelData.chars.split(',')[1], fonts.font, game);
-            new Letter(.355, .75, LevelData.chars.split(',')[2], fonts.font, game);
-            new Letter(.5, .835, LevelData.chars.split(',')[3], fonts.font, game);
+            const chars = LevelData.getInstance().chars;
+            new Letter(.5, .665, chars.split(',')[0], fonts.font, game);
+            new Letter(.65, .75, chars.split(',')[1], fonts.font, game);
+            new Letter(.355, .75, chars.split(',')[2], fonts.font, game);
+            new Letter(.5, .835, chars.split(',')[3], fonts.font, game);
         });
     }
 }

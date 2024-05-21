@@ -42,7 +42,7 @@ export default class WordHolder extends Container {
     AdjustBoxes(game) {
 
         //Checking level data and adjusting boxes
-        LevelData.words.split('|').forEach(word => {
+        LevelData.getInstance().words.split('|').forEach(word => {
             let values = word.split(',');
             let row = values[0];
             let column = values[1];

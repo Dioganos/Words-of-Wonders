@@ -7,11 +7,12 @@ import EndGame from "./endgame";
 export default class GameManager {
     constructor(game) {
         this.game = game;
+        this.words = LevelData.getInstance().words;
     }
     //Checks that the selected letters form a valid word
     CheckValid() {
         this.game.feedBack = true;
-        if (LevelData.words.includes(LevelData.words.split('|').find((text) => { return text.split(',')[2] == this.game.text; }))) {
+        if (this.words.includes(this.words.split('|').find((text) => { return text.split(',')[2] == this.game.text; }))) {
             //if the word is valid then checks the exact positions of letters in box container, sets game to default position, hides global letter.
             this.CheckExactPos(this.game.text);
             this.LetterChecked();
@@ -43,7 +44,7 @@ export default class GameManager {
     CheckExactPos(globalWord) {
         let concatWords = [];
         //Prepare leveldata words for comparsion 
-        LevelData.words.split('|').forEach(word => {
+        this.words.split('|').forEach(word => {
             //Get desired values
             let values = word.split(',');
             let row = values[0];
@@ -72,11 +73,11 @@ export default class GameManager {
             if (word != "") concatWords.push(word);
         })
         //Prepare leveldata for future checks
-        LevelData.words = concatWords.join('|');
+        this.words = concatWords.join('|');
     }
     PrepareEndGame(_this) {
         //If there is no other words to find, then slowly hide everything and start endgame.
-        if (LevelData.words == "") {
+        if (this.words == "") {
             this.game.gameFinished = true;
             this.game.playButton.install.alpha = 0;
             this.game.boxContainer.HideBoxes();

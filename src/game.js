@@ -69,9 +69,8 @@ export default class Game extends Container {
     this.LoadGameManager();
   }
   CreateLevelData() {
-    //Creating a level data
-    LevelData.chars = "L,G,D,O";
-    LevelData.words = "0,0,GOLD,H|0,0,GOD,V|2,0,DOG,H|0,2,LOG,V";
+    const levelData = LevelData.getInstance();
+    levelData.setLevelData("L,G,D,O", "0,0,GOLD,H|0,0,GOD,V|2,0,DOG,H|0,2,LOG,V");
   }
 
   LoadGameCanvas() {
