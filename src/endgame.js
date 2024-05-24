@@ -42,7 +42,7 @@ export default class EndGame extends Container {
             }
         }
         let animatedSprite = new AnimatedSprite(textures);
-        animatedSprite.animationSpeed = 0.1;
+        animatedSprite.animationSpeed = 0.2;
         animatedSprite.play();
         animatedSprite.anchor.set(.5);
         animatedSprite.x = GAME_WIDTH * .5;
