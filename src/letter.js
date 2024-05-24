@@ -1,5 +1,5 @@
 import { Assets, Container, Sprite, Text, TextStyle, Graphics } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, GAME_ASSETS } from ".";
 export default class Letter extends Container {
     constructor(posx, posy, char, font, game) {
         super();
@@ -50,7 +50,7 @@ export default class Letter extends Container {
             if (!this.game.drawing && !this.game.shuffling) {
                 this.game.drawing = true;
                 //Load Game & Change Text Color & Show Feedback Letter
-                this.letter.texture = assets.game["circle"];
+                this.letter.texture = GAME_ASSETS.game["circle"];
                 this.letter.tint = '#f07946';
                 this.letterText.style.fill = 'white';
                 this.InsertLetter(this.char, this.letter);
@@ -69,7 +69,7 @@ export default class Letter extends Container {
         this.letterText.on('pointerenter', () => {
             if (this.game.drawing && !this.game.feedBack && !this.game.letterContainers.includes(this.letter) && this.game.letterContainers.length > 0) {
                 //Load Game & Change Text Color & Update Feedback Letter
-                this.letter.texture = assets.game["circle"];
+                this.letter.texture = GAME_ASSETS.game["circle"];
                 this.letter.tint = '#f07946';
                 this.letterText.style.fill = 'white';
                 this.InsertLetter(this.char, this.letter);

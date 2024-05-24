@@ -1,6 +1,6 @@
 import gsap, { Power0 } from "gsap";
 import { Assets, Container, Sprite, Text, TextStyle } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, GAME_ASSETS } from ".";
 export default class GlobalLetter extends Container {
     constructor(game) {
         super();
@@ -27,7 +27,7 @@ export default class GlobalLetter extends Container {
     CreateGlobalLetterText() {
         //Set Text
         const globalLetterTextStyle = new TextStyle({
-            fontFamily: assets.fonts.font["family"],
+            fontFamily: GAME_ASSETS.fonts.font["family"],
             fontSize: 72,
             fill: 'white'
         });

@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { Assets, Text, Container, Sprite, TextStyle } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, GAME_ASSETS } from ".";
 export default class PlayButton extends Container {
     constructor(w, h, s, ts, game) {
         super();
@@ -25,7 +25,7 @@ export default class PlayButton extends Container {
     }
     CreateButtonText() {
         //Button Text
-        let font = assets.fonts.font;
+        let font = GAME_ASSETS.fonts.font;
         const installTextStyle = new TextStyle({
             fontFamily: font["family"],
             fontSize: 36,

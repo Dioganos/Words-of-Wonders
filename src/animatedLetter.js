@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { Assets, Container, Text, TextStyle } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, GAME_ASSETS } from ".";
 export default class AnimatedLetter extends Container {
     constructor(char, index, shape, dir, game) {
         super();
@@ -10,7 +10,7 @@ export default class AnimatedLetter extends Container {
 
     LoadLetter(char, index, shape, dir, game) {
         const letterTextStyle = new TextStyle({
-            fontFamily: assets.fonts.font["family"],
+            fontFamily: GAME_ASSETS.fonts.font["family"],
             fontSize: 72,
             fill: 'white'
         });

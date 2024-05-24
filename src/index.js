@@ -7,7 +7,7 @@ import Game from "./game";
 
 export const GAME_WIDTH = 480;
 export const GAME_HEIGHT = 800;
-export var assets;
+export const GAME_ASSETS = await initAssets();
 
 export const app = new Application({
   backgroundColor: 0x000000,
@@ -25,9 +25,7 @@ gsap.ticker.add(() => {
 async function init() {
 
   document.body.appendChild(app.view);
-
-  assets = await initAssets();
-  console.log("assets", assets);
+  console.log("assets", GAME_ASSETS);
 
   gsap.registerPlugin(PixiPlugin, CustomEase);
   PixiPlugin.registerPIXI(PIXI);
