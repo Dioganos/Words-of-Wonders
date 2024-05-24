@@ -37,7 +37,7 @@ export default class Picker extends Container {
         shuffle.anchor.set(.5);
         shuffle.scale.set(2);
         this.circle.addChild(shuffle);
-        shuffle.interactive = true;
+        shuffle.eventMode = 'dynamic';
         this.shuffle = shuffle;
         this.AssignShuffleEvents(game);
     }

@@ -38,7 +38,7 @@ export default class Letter extends Container {
         letterText.name = "letterText";
         letterText.scale.set(75);
         letterText.anchor.set(.5);
-        letterText.interactive = true;
+        letterText.eventMode = 'dynamic';
         this.letter.addChild(letterText);
         this.letterText = letterText;
         this.AssignLetterEvents();

@@ -62,7 +62,7 @@ export default class Game extends Container {
   LoadGame() {
     //Setting game container settings
     this.sortableChildren = true;
-    this.interactive = true;
+    this.eventMode = 'dynamic';
     //Load Game
     this.CreateLevelData();
     this.LoadGameCanvas();
