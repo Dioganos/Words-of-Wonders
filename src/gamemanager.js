@@ -1,8 +1,6 @@
 import gsap from "gsap";
 import LevelData from "./leveldata";
 import AnimatedLetter from "./animatedLetter";
-import { Sprite, Texture, AnimatedSprite, Rectangle } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH } from ".";
 import EndGame from "./endgame";
 export default class GameManager {
     constructor(game) {

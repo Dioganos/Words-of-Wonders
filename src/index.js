@@ -7,6 +7,7 @@ import Game from "./game";
 
 export const GAME_WIDTH = 480;
 export const GAME_HEIGHT = 800;
+export var assets;
 
 export const app = new Application({
   backgroundColor: 0x000000,
@@ -25,7 +26,7 @@ async function init() {
 
   document.body.appendChild(app.view);
 
-  let assets = await initAssets();
+  assets = await initAssets();
   console.log("assets", assets);
 
   gsap.registerPlugin(PixiPlugin, CustomEase);

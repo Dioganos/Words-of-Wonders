@@ -1,5 +1,5 @@
 import { Assets, Container, Sprite, Text, TextStyle, Graphics } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
 export default class Letter extends Container {
     constructor(posx, posy, char, font, game) {
         super();
@@ -45,24 +45,23 @@ export default class Letter extends Container {
     }
     AssignLetterEvents() {
         //OnMouseDown Event
+
         this.letterText.on('mousedown', () => {
             if (!this.game.drawing && !this.game.shuffling) {
                 this.game.drawing = true;
                 //Load Game & Change Text Color & Show Feedback Letter
-                Assets.loadBundle('game').then((gameBundle) => {
-                    this.letter.texture = gameBundle["circle"];
-                    this.letter.tint = '#f07946';
-                    this.letterText.style.fill = 'white';
-                    this.InsertLetter(this.char, this.letter);
-                    let line = new Graphics();
-                    line.zIndex = 1;
-                    line.position.set(this.letter.position.x, this.letter.position.y);
-                    this.game.addChild(line);
-                    this.game.currentLine = line;
-                    this.game.currentLetterText = this.letter;
-                    this.game.prevLetterText = this.letter;
-                    this.game.lines.push(line);
-                });
+                this.letter.texture = assets.game["circle"];
+                this.letter.tint = '#f07946';
+                this.letterText.style.fill = 'white';
+                this.InsertLetter(this.char, this.letter);
+                let line = new Graphics();
+                line.zIndex = 1;
+                line.position.set(this.letter.position.x, this.letter.position.y);
+                this.game.addChild(line);
+                this.game.currentLine = line;
+                this.game.currentLetterText = this.letter;
+                this.game.prevLetterText = this.letter;
+                this.game.lines.push(line);
             }
         });
 
@@ -70,25 +69,23 @@ export default class Letter extends Container {
         this.letterText.on('pointerenter', () => {
             if (this.game.drawing && !this.game.feedBack && !this.game.letterContainers.includes(this.letter) && this.game.letterContainers.length > 0) {
                 //Load Game & Change Text Color & Update Feedback Letter
-                Assets.loadBundle('game').then((gameBundle) => {
-                    this.letter.texture = gameBundle["circle"];
-                    this.letter.tint = '#f07946';
-                    this.letterText.style.fill = 'white';
-                    this.InsertLetter(this.char, this.letter);
-                    this.game.prevLetterText = this.game.currentLetterText;
-                    this.game.currentLetterText = this.letter;
-                    let line = new Graphics();
-                    line.zIndex = 1;
-                    line.position.set(this.letter.position.x, this.letter.position.y);
-                    this.game.addChild(line);
-                    const currentLine = this.game.currentLine;
-                    currentLine.clear();
-                    currentLine.lineStyle(20, '#f07946');
-                    currentLine.moveTo(0, 0);
-                    currentLine.lineTo(this.game.currentLetterText.position.x - this.game.prevLetterText.position.x, this.game.currentLetterText.position.y - this.game.prevLetterText.position.y);
-                    this.game.currentLine = line;
-                    this.game.lines.push(line);
-                });
+                this.letter.texture = assets.game["circle"];
+                this.letter.tint = '#f07946';
+                this.letterText.style.fill = 'white';
+                this.InsertLetter(this.char, this.letter);
+                this.game.prevLetterText = this.game.currentLetterText;
+                this.game.currentLetterText = this.letter;
+                let line = new Graphics();
+                line.zIndex = 1;
+                line.position.set(this.letter.position.x, this.letter.position.y);
+                this.game.addChild(line);
+                const currentLine = this.game.currentLine;
+                currentLine.clear();
+                currentLine.lineStyle(20, '#f07946');
+                currentLine.moveTo(0, 0);
+                currentLine.lineTo(this.game.currentLetterText.position.x - this.game.prevLetterText.position.x, this.game.currentLetterText.position.y - this.game.prevLetterText.position.y);
+                this.game.currentLine = line;
+                this.game.lines.push(line);
 
             }
         })

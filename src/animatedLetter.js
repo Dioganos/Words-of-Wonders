@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { Assets, Container, Text, TextStyle } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
 export default class AnimatedLetter extends Container {
     constructor(char, index, shape, dir, game) {
         super();
@@ -9,21 +9,19 @@ export default class AnimatedLetter extends Container {
     }
 
     LoadLetter(char, index, shape, dir, game) {
-        Assets.loadBundle('fonts').then((fonts) => {
-            const letterTextStyle = new TextStyle({
-                fontFamily: fonts.font["family"],
-                fontSize: 72,
-                fill: 'white'
-            });
-            let letter = new Text(char, letterTextStyle);
-            letter.name = "foundLetter";
-            letter.scale.set(1);
-            letter.position.x = GAME_WIDTH / 3 + (index * 50);
-            letter.position.y = GAME_HEIGHT / 2;
-            game.addChild(letter);
-            this.letter = letter;
-            this.AnimateLetter(index, shape, dir, game);
+        const letterTextStyle = new TextStyle({
+            fontFamily: assets.fonts.font["family"],
+            fontSize: 72,
+            fill: 'white'
         });
+        let letter = new Text(char, letterTextStyle);
+        letter.name = "foundLetter";
+        letter.scale.set(1);
+        letter.position.x = GAME_WIDTH / 3 + (index * 50);
+        letter.position.y = GAME_HEIGHT / 2;
+        game.addChild(letter);
+        this.letter = letter;
+        this.AnimateLetter(index, shape, dir, game);
     }
 
     AnimateLetter(index, shape, dir, game) {

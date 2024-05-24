@@ -1,6 +1,6 @@
 import gsap, { Power0 } from "gsap";
 import { Assets, Container, Sprite, Text, TextStyle } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
 export default class GlobalLetter extends Container {
     constructor(game) {
         super();
@@ -26,19 +26,17 @@ export default class GlobalLetter extends Container {
     }
     CreateGlobalLetterText() {
         //Set Text
-        Assets.loadBundle('fonts').then((fonts) => {
-            const globalLetterTextStyle = new TextStyle({
-                fontFamily: fonts.font["family"],
-                fontSize: 72,
-                fill: 'white'
-            });
-            let globalLetterText = new Text("X", globalLetterTextStyle);
-            globalLetterText.width = this.globalLetter.width * 4;
-            globalLetterText.height = this.globalLetter.height * 4;
-            globalLetterText.anchor.set(.5);
-            this.globalLetter.addChild(globalLetterText);
-            this.globalLetterText = globalLetterText;
+        const globalLetterTextStyle = new TextStyle({
+            fontFamily: assets.fonts.font["family"],
+            fontSize: 72,
+            fill: 'white'
         });
+        let globalLetterText = new Text("X", globalLetterTextStyle);
+        globalLetterText.width = this.globalLetter.width * 4;
+        globalLetterText.height = this.globalLetter.height * 4;
+        globalLetterText.anchor.set(.5);
+        this.globalLetter.addChild(globalLetterText);
+        this.globalLetterText = globalLetterText;
     }
     HideGlobalLetter(startPos) {
         this.globalLetter.alpha = 0;

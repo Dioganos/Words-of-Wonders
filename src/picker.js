@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { Assets, Container, Sprite } from "pixi.js";
-import { GAME_HEIGHT, GAME_WIDTH } from ".";
+import { GAME_HEIGHT, GAME_WIDTH, assets } from ".";
 import LevelData from "./leveldata";
 import Letter from "./letter";
 export default class Picker extends Container {
@@ -63,12 +63,10 @@ export default class Picker extends Container {
     }
     CreateLetters(game) {
         // Letters
-        Assets.loadBundle('fonts').then((fonts) => {
-            const chars = LevelData.getInstance().chars;
-            new Letter(.5, .665, chars.split(',')[0], fonts.font, game);
-            new Letter(.65, .75, chars.split(',')[1], fonts.font, game);
-            new Letter(.355, .75, chars.split(',')[2], fonts.font, game);
-            new Letter(.5, .835, chars.split(',')[3], fonts.font, game);
-        });
+        const chars = LevelData.getInstance().chars;
+        new Letter(.5, .665, chars.split(',')[0], assets.fonts.font, game);
+        new Letter(.65, .75, chars.split(',')[1], assets.fonts.font, game);
+        new Letter(.355, .75, chars.split(',')[2], assets.fonts.font, game);
+        new Letter(.5, .835, chars.split(',')[3], assets.fonts.font, game);
     }
 }
